@@ -1,9 +1,11 @@
 import Head from "next/head"
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import { Navbar } from "../ui"
 
-
-export const Layout: FC = ({ children }) => {
+interface Props {
+    children: ReactNode
+}
+export const Layout: FC<Props> = ({ children }) => {
     return (
         <>
             <Head>

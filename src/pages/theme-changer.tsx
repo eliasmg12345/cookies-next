@@ -1,4 +1,5 @@
-import { useState, useEffect, ChangeEvent, FC } from 'react'
+
+import { useState, useEffect, ChangeEvent, FC, ReactNode} from 'react'
 import { Button, Card, CardContent, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 import { Layout } from '@/components/layouts'
 import { GetServerSideProps } from 'next';
@@ -7,12 +8,13 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 interface Props {
-    theme: string
+    theme: string;
+    children: ReactNode
 }
 const ThemeChangerPage: FC<Props> = ({ theme }) => {
 
 
-    const [currentTheme, setCurrentTheme] = useState('light')
+    const [currentTheme, setCurrentTheme] = useState(theme)
 
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedTheme = event.target.value
